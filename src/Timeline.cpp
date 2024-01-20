@@ -55,6 +55,12 @@ namespace fisk
 
 
 		ImGui::Dummy(ImVec2(width, 50));
+		int32_t target_time = myNow;
+		if (ImGui::SliderInt("##target_time", &target_time, 0, myMaxTime, "", ImGuiSliderFlags_AlwaysClamp))
+		{
+			Reset();
+			Goto(target_time);
+		}
 		ImGui::Separator();
 
 		if (ImGui::Button("Go back"))
